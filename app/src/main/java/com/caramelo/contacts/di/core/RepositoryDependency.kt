@@ -1,19 +1,15 @@
 package com.caramelo.contacts.di.core
 
-import android.content.Context
-import com.caramelo.contacts.database.local.ContactLocal
 import com.caramelo.contacts.repository.ContactRepository
 
 interface RepositoryDependency {
     val contactRepository: ContactRepository
 }
 
-class RepositoryInject(context: Context) : RepositoryDependency,
-    DatabaseDependency by DatabaseInject(context),
+class RepositoryInject : RepositoryDependency,
+    DatabaseDependency by DatabaseInject(),
     ServiceDependency by ServiceInject() {
 
     override val contactRepository: ContactRepository
         get() = ContactRepository(contactService, contactDao, contactLocal)
-
-    private val contactLocal = ContactLocal(context.contentResolver)
 }

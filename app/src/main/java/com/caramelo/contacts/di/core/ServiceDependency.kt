@@ -8,6 +8,5 @@ interface ServiceDependency {
 }
 
 class ServiceInject : ServiceDependency {
-    override val contactService: ContactService
-        get() = ContactServiceImpl()
+    override val contactService by lazy { ContactServiceImpl() }
 }
