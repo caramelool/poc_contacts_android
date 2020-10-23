@@ -9,7 +9,8 @@ import kotlin.reflect.KProperty
 
 class MainPresenterInject {
     operator fun getValue(ref: MainView, property: KProperty<*>): MainPresenter {
-        val repositoryInject = RepositoryInject(ref as Context)
+        val context = ref as Context
+        val repositoryInject = RepositoryInject(context.applicationContext)
         return MainPresenter(ref, repositoryInject.contactRepository)
     }
 }
