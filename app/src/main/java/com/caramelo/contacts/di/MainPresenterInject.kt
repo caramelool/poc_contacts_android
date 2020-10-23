@@ -7,9 +7,9 @@ import com.caramelo.contacts.presenter.MainView
 
 import kotlin.reflect.KProperty
 
-class MainActivityInject {
-    operator fun getValue(ref: Any, property: KProperty<*>): MainPresenter {
+class MainPresenterInject {
+    operator fun getValue(ref: MainView, property: KProperty<*>): MainPresenter {
         val repositoryInject = RepositoryInject(ref as Context)
-        return MainPresenter(ref as MainView, repositoryInject.contactRepository)
+        return MainPresenter(ref, repositoryInject.contactRepository)
     }
 }

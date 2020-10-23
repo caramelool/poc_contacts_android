@@ -9,8 +9,7 @@ interface DatabaseDependency {
     val contactDao: ContactDao
 }
 
-class DatabaseInject(context: Context) :
-    DatabaseDependency {
+class DatabaseInject(context: Context) : DatabaseDependency {
     private val db by lazy {
         Room.databaseBuilder(
             context,

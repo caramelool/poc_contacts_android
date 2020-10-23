@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.caramelo.contacts.adapter.ContactAdapter
-import com.caramelo.contacts.di.MainActivityInject
+import com.caramelo.contacts.di.MainPresenterInject
 import com.caramelo.contacts.model.Contact
 import com.caramelo.contacts.presenter.MainView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity(), MainView {
 
     private var permissionContinuation: Continuation<Boolean>? = null
 
-    private val presenter by MainActivityInject()
+    private val presenter by MainPresenterInject()
     private val adapter = ContactAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
